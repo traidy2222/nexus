@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-rgb: 30, 30, 30;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Code Editor Styles */
+.code-editor {
+  counter-reset: line;
+  background: #1E1E1E;
+  color: #fff;
+  width: 100%;
+}
+
+.code-editor textarea {
+  outline: none !important;
+  @apply bg-transparent text-white;
+}
+
+/* Syntax Highlighting Theme */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #6a9955;
+}
+
+.token.punctuation {
+  color: #d4d4d4;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #b5cea8;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #ce9178;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #d4d4d4;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #569cd6;
+}
+
+.token.function,
+.token.class-name {
+  color: #dcdcaa;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #d16969;
+}
+
+/* Browser Content Styles */
+.browser-content {
+  position: relative;
+  height: 100%;
+  z-index: 10;
+}
+
+.external-content {
+  position: relative;
+  min-height: 100%;
+  background: white;
+  z-index: 10;
+}
+
+/* Reset external content styles */
+.external-content * {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  z-index: auto !important;
+}
+
+/* Handle fixed headers and navigation */
+.external-content header,
+.external-content nav,
+.external-content div[role="banner"],
+.external-content .fixed,
+.external-content .sticky {
+  position: relative !important;
+  z-index: 1;
+}
+
+/* Ensure proper containment */
+.external-content {
+  contain: content;
+  all: initial;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Preserve images and media */
+.external-content img,
+.external-content video,
+.external-content iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Chat message metadata bubbles */
+.metadata-bubble {
+  @apply rounded-lg p-3 transition-all duration-200 ease-in-out;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: bubble-appear 0.3s ease-out forwards;
+}
+
+@keyframes bubble-appear {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Bubble types */
+.bubble-thought {
+  @apply bg-purple-500 text-white shadow-purple-500/20;
+}
+
+.bubble-action {
+  @apply bg-blue-500 text-white shadow-blue-500/20;
+}
+
+.bubble-observation {
+  @apply bg-green-500 text-white shadow-green-500/20;
+}
+
+.bubble-reflection {
+  @apply bg-yellow-500 text-black shadow-yellow-500/20;
+}
+
+/* Bubble animations */
+.bubble-thought {
+  animation-delay: 0.1s;
+}
+
+.bubble-action {
+  animation-delay: 0.2s;
+}
+
+.bubble-observation {
+  animation-delay: 0.3s;
+}
+
+.bubble-reflection {
+  animation-delay: 0.4s;
+}
